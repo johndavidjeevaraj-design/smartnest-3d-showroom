@@ -1,0 +1,176 @@
+.villa-app {
+  min-height: 100vh;
+  background: #080c13;
+  color: #f2f6ff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.villa-stage {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 680px;
+  overflow: hidden;
+  background: #d9e5ef;
+}
+.villa-stage > canvas {
+  position: absolute;
+  inset: 0;
+}
+.villa-topbar {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 34px;
+  background: linear-gradient(180deg, rgba(7, 12, 20, .82), rgba(7, 12, 20, .03));
+}
+.villa-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #fff;
+  text-decoration: none;
+}
+.villa-brand-mark {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #1687ff;
+  border-radius: 9px;
+  color: #72baff;
+  font-size: 20px;
+  font-weight: 700;
+}
+.villa-brand strong, .villa-brand small { display: block; }
+.villa-brand strong { font-size: 12px; letter-spacing: 2px; }
+.villa-brand small { margin-top: 4px; color: #aab7c7; font-size: 8px; letter-spacing: 2px; }
+.villa-top-label, .villa-back-link {
+  color: #e5edf7;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+}
+.villa-live-dot, .villa-bottom-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #1687ff;
+  box-shadow: 0 0 12px #1687ff;
+}
+.villa-back-link { border: 1px solid #ffffff4a; border-radius: 7px; padding: 10px 13px; }
+.villa-intro {
+  position: absolute;
+  z-index: 2;
+  top: 18%;
+  left: 5%;
+  max-width: 430px;
+  pointer-events: none;
+  text-shadow: 0 2px 20px #ffffff80;
+}
+.villa-eyebrow { color: #1674ce; font-size: 9px; font-weight: 800; letter-spacing: 2px; }
+.villa-intro h1 {
+  max-width: 410px;
+  margin: 12px 0;
+  color: #101b2a;
+  font-size: clamp(31px, 3.4vw, 51px);
+  line-height: 1.04;
+  letter-spacing: -1.7px;
+}
+.villa-intro p { margin: 0; color: #26384a; font-size: 13px; line-height: 1.7; }
+.villa-hint { margin-top: 23px; color: #35495c; font-size: 10px; }
+.villa-hint span { color: #1674ce; font-size: 17px; vertical-align: -2px; margin-right: 6px; }
+.villa-hint i { display: inline-block; height: 12px; margin: 0 9px -3px; border-left: 1px solid #657587; }
+.villa-controls {
+  position: absolute;
+  z-index: 4;
+  top: 100px;
+  right: 26px;
+  width: min(340px, calc(100vw - 32px));
+  padding: 23px;
+  border: 1px solid #ffffff26;
+  border-radius: 17px;
+  background: rgba(9, 15, 25, .91);
+  color: #f2f6ff;
+  box-shadow: 0 24px 70px #0a132340;
+  backdrop-filter: blur(18px);
+}
+.villa-panel-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.villa-panel-heading .villa-eyebrow { color: #71b7ff; font-size: 8px; }
+.villa-panel-heading h2 { margin: 7px 0 0; font-size: 20px; letter-spacing: -.4px; }
+.villa-status { padding: 5px 7px; border: 1px solid #1687ff70; border-radius: 4px; color: #76bcff; font-size: 8px; letter-spacing: 1px; }
+.villa-mode-list { display: grid; gap: 7px; }
+.villa-mode {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 11px;
+  padding: 11px 10px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: #ffffff06;
+  color: #eaf1fa;
+  text-align: left;
+  cursor: pointer;
+}
+.villa-mode.active { border-color: #1687ff90; background: #1687ff19; }
+.villa-mode-icon { display: grid; place-items: center; width: 31px; height: 31px; border-radius: 8px; background: #ffffff0d; color: #82c1ff; font-size: 19px; }
+.villa-mode-copy { flex: 1; min-width: 0; }
+.villa-mode-copy strong, .villa-mode-copy small { display: block; }
+.villa-mode-copy strong { font-size: 11px; font-weight: 600; }
+.villa-mode-copy small { margin-top: 4px; color: #96a5b7; font-size: 9px; }
+.villa-mode-arrow { color: #1687ff; font-size: 12px; }
+.villa-control-divider { height: 1px; margin: 17px 0 7px; background: #ffffff16; }
+.villa-device-row { display: flex; align-items: center; gap: 11px; padding: 12px 0; border-bottom: 1px solid #ffffff10; }
+.villa-device-icon { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid #ffffff13; border-radius: 8px; color: #90c7ff; font-size: 18px; }
+.villa-device-copy { flex: 1; min-width: 0; }
+.villa-device-copy strong, .villa-device-copy small { display: block; }
+.villa-device-copy strong { font-size: 11px; font-weight: 600; }
+.villa-device-copy small { margin-top: 5px; color: #9aa8b9; font-size: 9px; }
+.villa-toggle { width: 34px; height: 19px; padding: 2px; border: 0; border-radius: 20px; background: #48515d; cursor: pointer; transition: background .2s; }
+.villa-toggle span { display: block; width: 15px; height: 15px; border-radius: 50%; background: #fff; transition: transform .2s; }
+.villa-toggle.on { background: #1687ff; }
+.villa-toggle.on span { transform: translateX(15px); }
+.villa-panel-note { display: flex; gap: 8px; margin-top: 17px; color: #9caec2; font-size: 9px; line-height: 1.6; }
+.villa-panel-note span { color: #72baff; }
+.villa-bottom-left { position: absolute; z-index: 2; bottom: 24px; left: 28px; color: #2d4052; font-size: 8px; letter-spacing: 1.6px; }
+.villa-info-button { position: absolute; z-index: 3; bottom: 19px; right: 28px; padding: 10px 13px; border: 1px solid #fff9; border-radius: 7px; background: #0b1422d9; color: #fff; font-size: 10px; cursor: pointer; }
+.villa-details { position: absolute; z-index: 3; bottom: 62px; right: 28px; display: grid; gap: 7px; max-width: 310px; padding: 15px 17px; border: 1px solid #ffffff40; border-radius: 10px; background: #0b1422e8; }
+.villa-details strong { font-size: 11px; }
+.villa-details span { color: #aebed0; font-size: 9px; line-height: 1.5; }
+@media (max-width: 760px) {
+  .villa-stage { min-height: 850px; height: 100svh; }
+  .villa-topbar { height: 64px; padding: 0 15px; }
+  .villa-top-label { display: none; }
+  .villa-back-link { padding: 8px; font-size: 9px; }
+  .villa-intro { top: 90px; left: 18px; max-width: 75%; }
+  .villa-intro h1 { max-width: 300px; font-size: 33px; }
+  .villa-intro p { max-width: 260px; font-size: 11px; }
+  .villa-hint { margin-top: 10px; }
+  .villa-controls { top: auto; right: 12px; bottom: 58px; width: min(320px, calc(100vw - 24px)); padding: 15px; }
+  .villa-panel-heading { margin-bottom: 11px; }
+  .villa-panel-heading h2 { font-size: 17px; }
+  .villa-mode-list { grid-template-columns: 1fr 1fr; gap: 5px; }
+  .villa-mode { gap: 7px; padding: 8px 6px; }
+  .villa-mode-icon { width: 26px; height: 26px; font-size: 15px; }
+  .villa-mode-copy strong { font-size: 10px; }
+  .villa-mode-copy small { font-size: 8px; }
+  .villa-mode-arrow { display: none; }
+  .villa-control-divider { margin: 10px 0 3px; }
+  .villa-device-row { padding: 8px 0; }
+  .villa-device-icon { width: 28px; height: 28px; }
+  .villa-panel-note { margin-top: 10px; }
+  .villa-bottom-left { bottom: 20px; left: 14px; font-size: 7px; }
+  .villa-info-button { bottom: 13px; right: 12px; }
+  .villa-details { bottom: 52px; right: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .villa-toggle, .villa-toggle span { transition: none; }
+}

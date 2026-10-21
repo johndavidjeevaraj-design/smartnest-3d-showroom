@@ -1,0 +1,70 @@
+"use client";
+
+import { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { ContactShadows, OrbitControls } from "@react-three/drei";
+import * as THREE from "three";
+import type { ShowroomMaterial } from "./catalog";
+import { RoomScene } from "./RoomScene";
+
+function WebGLFallback() {
+  return (
+    <div className="webgl-fallback" role="alert">
+      <strong>3D preview is unavailable</strong>
+      <span>Enable WebGL in your browser to explore this room.</span>
+    </div>
+  );
+}
+
+export default function SceneViewer({
+  floorMaterial,
+  featureMaterial,
+  resetKey,
+  onReady,
+}: {
+  floorMaterial: ShowroomMaterial;
+  featureMaterial: ShowroomMaterial;
+  resetKey: number;
+  onReady: () => void;
+}) {
+  return (
+    <Canvas
+      key={resetKey}
+      className="showroom-canvas"
+      shadows
+      dpr={[1, 1.5]}
+      camera={{ position: [10.8, 7.6, 11.8], fov: 39, near: 0.1, far: 140 }}
+      gl={{
+        antialias: true,
+        powerPreference: "high-performance",
+        toneMapping: THREE.ACESFilmicToneMapping,
+      }}
+      fallback={<WebGLFallback />}
+      onCreated={onReady}
+    >
+      <Suspense fallback={null}>
+        <RoomScene floorMaterial={floorMaterial} featureMaterial={featureMaterial} />
+        <ContactShadows
+          position={[0, 0.004, 0]}
+          opacity={0.24}
+          scale={17}
+          blur={2.8}
+          far={5}
+          resolution={512}
+        />
+        <OrbitControls
+          makeDefault
+          target={[0, 1.15, -1.05]}
+          enableDamping
+          dampingFactor={0.075}
+          minDistance={6}
+          maxDistance={20}
+          minPolarAngle={0.2}
+          maxPolarAngle={Math.PI / 2.02}
+          minAzimuthAngle={-Math.PI / 2.2}
+          maxAzimuthAngle={Math.PI / 2.2}
+        />
+      </Suspense>
+    </Canvas>
+  );
+}

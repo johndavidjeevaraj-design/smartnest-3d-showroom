@@ -1,0 +1,16 @@
+
+"use client";
+
+import { Bounds, useGLTF } from "@react-three/drei";
+
+export default function ICGGroundFloor() {
+  const { scene } = useGLTF("/models/icg-ground-floor.glb");
+
+  return (
+    <Bounds fit clip observe margin={1.25}>
+      <primitive object={scene} />
+    </Bounds>
+  );
+}
+
+useGLTF.preload("/models/icg-ground-floor.glb");

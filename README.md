@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SmartNest 3D Showroom
 
-## Getting Started
+An interactive, browser-based interior material study built with Next.js, React Three Fiber and Three.js. Visitors can inspect a procedural room scene, orbit and zoom the camera, browse a material catalogue, filter samples and apply selected finishes to supported surfaces.
 
-First, run the development server:
+> This repository is a material-selection / 3D showroom experience. It is distinct from a live smart-home device-control system.
+
+## Current experience
+
+- Interactive 3D scene loaded client-side.
+- Ground-floor scene study with orbit and zoom controls.
+- Material library with search and category filters.
+- Apply selected materials to the main floor or feature wall.
+- Resettable experience state and loading feedback.
+- Explicit placeholder messaging for floors that have not yet been modelled.
+
+## Technology
+
+- Next.js 16 App Router
+- React 19 and TypeScript
+- Three.js
+- React Three Fiber and Drei
+- Tailwind CSS 4
+
+## Local development
+
+Requirements: Node.js version supported by the installed Next.js release.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quality checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+npm start
+```
 
-## Learn More
+## Engineering notes
 
-To learn more about Next.js, take a look at the following resources:
+The 3D viewer is dynamically imported with server-side rendering disabled, keeping browser/WebGL work on the client. Preserve the loading and placeholder states when extending the scene. Test WebGL availability, lower-powered devices, touch controls, keyboard access and reduced-motion preferences.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [Engineering roadmap](docs/ENGINEERING_ROADMAP.md) for scene coverage, accessibility, performance and testing priorities.
